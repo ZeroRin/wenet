@@ -28,8 +28,11 @@ jobs:
       if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/main' }}
       run: |
         mkdir public
+        mkdir public/ch
+        mkdir public/en
         touch public/.nojekyll
-        cp -r docs/_build/html/* public/
+        cp -r docs/_build/html/* public/ch
+        cp -r docs/_build/html/* public/en
 
     # push to gh-pages branch
     - name: github pages deploy
